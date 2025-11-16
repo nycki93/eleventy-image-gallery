@@ -1,0 +1,22 @@
+<h1>GALLERY PLACEHOLDER</h1>
+
+all posts
+
+<div style="display: flex;">
+    {% for post in collections.$gallery %}
+    <div style="width: 10ch; height: 10ch; background-color: lightblue; margin: 2ch;">
+        <a href="{{ post.url }}">{{ post.data.title or post.page.fileSlug }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+<ul>
+</ul>
+
+all tags
+
+<div style="display: flex;">
+    {% for tag in collections.$galleryTagList %}
+    <span style="margin: 1ch; background-color: lightgreen"><a href="/tagged/{{ tag }}/">{{ tag }}</a></span>
+    {% endfor %}
+</div>

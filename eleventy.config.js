@@ -3,6 +3,10 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.setInputDirectory('content');
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
 
+    eleventyConfig.addFilter('tagged', (collection, ...tags) => {
+        return collection.filter(post => post.data.tags.every(t => tags.includes(t)));
+    });
+
     eleventyConfig.addCollection('$galleryTagList', (collectionsApi) => {
         const c = {};
         for (const post of collectionsApi.getFilteredByTag('$gallery')) {
