@@ -1,0 +1,7 @@
+tag cloud!
+
+<ol>
+    {% for tag in collections.$galleryTagList %}
+        <a href="/tagged/{{tag}}/">{{tag}}</a>
+    {% endfor %}
+</ol>
