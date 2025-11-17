@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Setup GH Pages
+        uses: actions/configure-pages@v5
+
       - name: Cache Dependendies
         uses: actions/cache@v4
         with:
