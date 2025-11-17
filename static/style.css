@@ -9,7 +9,7 @@ body {
   padding: 1ch;
   max-width: 80ch;
 }
-body :first-child {
+:first-child {
   margin-top: 0;
 }
 

@@ -1,7 +1,5 @@
-tag cloud!
+<h1>MAIN PAGE PLACEHOLDER</h1>
 
-<ol>
-    {% for tag in collections.$galleryTagList %}
-        <a href="/tagged/{{tag}}/">{{tag}}</a>
-    {% endfor %}
-</ol>
+{% filter stripHeader %}
+{% include './gallery.njk' %}
+{% endfilter %}

@@ -6,6 +6,9 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
     eleventyConfig.setDataFileBaseName('_data');
 
+    // use template for all pages unless otherwise stated!
+    eleventyConfig.addGlobalData('layout', 'base.njk');
+
 	eleventyConfig.addPlugin(relativeLinks);
 
     eleventyConfig.addGlobalData('site.url', process.env.url || 'http://localhost:8080');
@@ -20,7 +23,13 @@ export default function(eleventyConfig) {
         }
         return Array.from(tags).toSorted();
     });
+    
+    eleventyConfig.addNunjucksFilter('stripHeader', function(content) {
+        console.log(content);
+        return this.env.filters.safe(content.replace(/<h1>.*<\/h1>/, ''));
+    });
+};
 
-    // use template for all pages unless otherwise stated!
-    eleventyConfig.addGlobalData('layout', 'base.njk');
+export const config = {
+    markdownTemplateEngine: 'njk',
 };
