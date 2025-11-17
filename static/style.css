@@ -1,0 +1,24 @@
+html {
+  background-color: grey;
+}
+
+body {
+  background-color: lightgoldenrodyellow;
+  margin: 1ch auto;
+  padding: 1ch;
+  max-width: 80ch;
+}
+body :first-child {
+  margin-top: 0;
+}
+
+nav ul {
+	list-style: none;
+	padding-left: 0;
+}
+nav li {
+	display: inline;
+}
+nav li + li::before {
+	content: ' | ';
+}
