@@ -1,0 +1,14 @@
+<h1>GALLERY PLACEHOLDER</h1>
+
+all posts
+
+{% set tag = '$gallery' %}
+{% include 'thumbnails.njk' %}
+
+<ul>
+</ul>
+
+all tags
+
+{% set tags = collections.$galleryTags %}
+{% include 'taglist.njk' %}

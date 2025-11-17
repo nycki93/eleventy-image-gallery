@@ -1,0 +1,9 @@
+{% set tags = tags or [] %}
+{% set exclude = exclude or r/^\$/ %}
+<div style="display: flex;">
+  {% for tag in tags %}
+  {% if not exclude.test(tag) %}
+  <span style="margin: 1ch; background-color: lightgreen"><a href="/tagged/{{ tag }}/">{{ tag }}</a></span>
+  {% endif %}
+  {% endfor %}
+</div>

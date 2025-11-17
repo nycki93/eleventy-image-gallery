@@ -2,6 +2,7 @@
 module.exports = function(eleventyConfig) {
     eleventyConfig.setInputDirectory('content');
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
+    eleventyConfig.setDataFileBaseName('_data');
 
     eleventyConfig.addCollection('$galleryTags', (collectionsApi) => {
         const tags = new Set();
