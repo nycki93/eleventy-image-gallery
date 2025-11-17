@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-plugin-ejs": "^1.0.0"
+    "@11ty/eleventy-plugin-ejs": "^1.0.0",
+    "@types/node": "^24.10.1"
   }
 }
