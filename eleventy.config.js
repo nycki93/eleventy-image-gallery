@@ -1,8 +1,14 @@
+import relativeLinks from './_config/relative-links.js';
+
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
     eleventyConfig.setInputDirectory('content');
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
     eleventyConfig.setDataFileBaseName('_data');
+
+	eleventyConfig.addPlugin(relativeLinks);
+
+    eleventyConfig.addGlobalData('site.url', process.env.url || 'http://localhost:8080');
 
     eleventyConfig.addCollection('$galleryTags', (collectionsApi) => {
         const tags = new Set();
