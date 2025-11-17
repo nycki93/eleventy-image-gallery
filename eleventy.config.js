@@ -3,18 +3,18 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.setInputDirectory('content');
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
 
-    eleventyConfig.addFilter('tagged', (collection, ...tags) => {
-        return collection.filter(post => post.data.tags.every(t => tags.includes(t)));
-    });
+    // use template for all pages unless otherwise stated!
+    eleventyConfig.addGlobalData('layout', 'base.njk');
+};
 
-    eleventyConfig.addCollection('$galleryTagList', (collectionsApi) => {
-        const c = {};
-        for (const post of collectionsApi.getFilteredByTag('$gallery')) {
-            for (const tag of post.data.tags) {
-                c[tag] = true;
-            }
+// get all tags inside a named collection, not counting the name of the collection itself.
+module.exports.getCollectionTags = (filterTag) => (_, fullData) => {
+    const tags = new Set();
+    for (const page of fullData.collections[filterTag]) {
+        for (const tag of page.data.tags) {
+            if (tag == filterTag) continue;
+            tags.add(tag);
         }
-        delete c['$gallery'];
-        return Object.keys(c).toSorted();
-    });
+    }
+    return Array.from(tags).toSorted();
 };
