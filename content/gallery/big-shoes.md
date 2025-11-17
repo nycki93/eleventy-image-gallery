@@ -1,5 +1,6 @@
 ---
   title: big-shoes
+  thumbnail: /gallery/big-shoes.png
   tags:
     - tagme
 ---

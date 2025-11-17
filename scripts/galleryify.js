@@ -59,13 +59,15 @@ async function main() {
     } catch(err) {
       if (err.code !== 'ENOENT') throw err;
       console.log(`creating ${galleryPage}`);
+      const imgsrc = fileOut.replace(/^static/, '');
       fs.writeFile(galleryPage, unindent(`
         ---
           title: ${name}
+          thumbnail: ${imgsrc}
           tags:
             - tagme
         ---
-        <img src="${fileOut.replace(/^static/, '')}">
+        <img src="${imgsrc}">
       `));
     }
   }

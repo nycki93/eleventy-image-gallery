@@ -1,5 +1,6 @@
 ---
   title: klay-yeah
+  thumbnail: /gallery/klay-yeah.png
   tags:
     - tagme
 ---
