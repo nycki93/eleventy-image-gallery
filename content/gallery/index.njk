@@ -16,7 +16,7 @@ all posts
 all tags
 
 <div style="display: flex;">
-    {% for tag in collections.$galleryTagList %}
+    {% for tag in collections.$galleryTags %}
     <span style="margin: 1ch; background-color: lightgreen"><a href="/tagged/{{ tag }}/">{{ tag }}</a></span>
     {% endfor %}
 </div>

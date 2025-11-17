@@ -1,12 +1,9 @@
----js
-import { getCollectionTags } from './eleventy.config.js';
-const pagination = {
-  data: "collections",
-  before: getCollectionTags('$gallery'),
-  size: 1,
-  alias: "tag",
-};
-const permalink = "/tagged/{{ tag }}/";
+---
+pagination: 
+  data: collections.$galleryTags
+  size: 1
+  alias: tag
+permalink: /tagged/{{ tag }}/
 ---
 <h1>Tagged {{ tag }}</h1>
 <ul>
