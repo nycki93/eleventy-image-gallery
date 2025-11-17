@@ -1,6 +1,5 @@
 ---
 tags: 
-  - $gallery
   - charlie
   - alpha
 ---

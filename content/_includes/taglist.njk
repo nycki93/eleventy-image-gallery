@@ -1,5 +1,5 @@
 {% set tags = tags or [] %}
-{% set exclude = exclude or r/^\$/ %}
+{% set exclude = exclude or r/^_/ %}
 <div style="display: flex;">
   {% for tag in tags %}
   {% if not exclude.test(tag) %}
