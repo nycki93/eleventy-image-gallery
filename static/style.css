@@ -1,10 +1,11 @@
 html {
   background-color: grey;
+  padding: 1ch;
 }
 
 body {
   background-color: lightgoldenrodyellow;
-  margin: 1ch auto;
+  margin: 0 auto;
   padding: 1ch;
   max-width: 80ch;
 }
