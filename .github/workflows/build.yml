@@ -19,7 +19,7 @@ jobs:
 
       - name: Get Url
         env:
-          GH_TOKEN ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
           echo "url=$url" >> $GITHUB_ENV
