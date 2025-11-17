@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "eleventy",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve",
+    "galleryify": "node scripts/galleryify.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-ejs": "^1.0.0",
-    "@types/node": "^24.10.1"
+    "@types/node": "^24.10.1",
+    "sharp": "^0.34.5"
   }
 }
