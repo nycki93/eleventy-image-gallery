@@ -2,21 +2,23 @@ name: Eleventy Build
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch: {}
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions: 
       contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - name: Cache Dependendies
         uses: actions/cache@v4
         with:
@@ -24,11 +26,14 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
       - run: npm ci
       - run: npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main'
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          path: ./_site
+      
+      - name: Publish
+        uses: actions/deploy-pages@v4
