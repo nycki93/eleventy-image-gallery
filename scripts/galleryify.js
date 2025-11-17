@@ -4,7 +4,7 @@ import sharp from 'sharp';
 
 const dirIn = 'scripts/in';
 const dirOut = 'static/gallery';
-const shrinkThreshold = 100 * 1024;
+const shrinkThreshold = 400 * 1024;
 const quality = [100, 99, 97, 95, 90, 80, 75, 70, 60, 50, 40];
 
 /**
