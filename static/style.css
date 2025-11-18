@@ -23,3 +23,7 @@ nav li {
 nav li + li::before {
 	content: ' | ';
 }
+
+img {
+  max-width: 100%;
+}
