@@ -28,7 +28,7 @@ eleventyExcludeFromCollections: true
   <summary>
     {{ post.description or post.fileSlug }}
   </summary>
-  <content type="html">{{ post.content | safe }}</content>
+  <content type="html">{{ post.content | xhtml }}</content>
 </entry>
 {% endfor %}
 

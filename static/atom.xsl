@@ -41,10 +41,17 @@
         <xsl:value-of select="atom:title"/>
       </a>
     </h3>
-    <xsl:apply-templates select="atom:content/*"/>
+    <xsl:apply-templates select="atom:content/*" namespace=""/>
   </section>
 </xsl:template>
 
+<!-- 
+<xsl:template match="*[local-name()='img'][1]">
+  this selects only the first image in the content. might be useful.
+</xsl:template> 
+-->
+
+<!-- transform all remaining tags as themselves -->
 <xsl:template match="*"> 
   <xsl:element name="{local-name()}">
     <xsl:apply-templates select="@*|node()"/>

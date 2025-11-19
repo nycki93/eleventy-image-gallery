@@ -18,5 +18,8 @@
     "@11ty/eleventy-plugin-ejs": "^1.0.0",
     "@types/node": "^24.10.1",
     "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "htmltidy2": "^1.2.0"
   }
 }

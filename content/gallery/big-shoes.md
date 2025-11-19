@@ -7,5 +7,5 @@ updated: "2025-11-19T22:02:35.380Z"
 tags:
   - tagme
 ---
-<img src="/gallery/big-shoes.png"/>
+<img src="/gallery/big-shoes.png">
       
