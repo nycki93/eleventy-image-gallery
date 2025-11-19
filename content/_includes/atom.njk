@@ -4,6 +4,7 @@ eleventyExcludeFromCollections: true
 # permalink: /gallery/atom.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/atom.xsl" type="text/xsl"?>
 <!-- https://andrewstiefel.com/style-atom-xsl/ -->
 <feed xmlns="http://www.w3.org/2005/Atom">
 <updated>{{ (collections[tag] | last).data.updated | xmlDate }}</updated>
@@ -24,8 +25,10 @@ eleventyExcludeFromCollections: true
   <link rel="alternate" href="{{ site.url }}{{ post.url }}"/>
   <updated>{{ post.data.updated | xmlDate }}</updated>
   <id>{{ site.url }}{{ post.url }}:{{ post.data.updated }}</id>
-  <summary>{{ post.description or post.fileSlug }}</summary>
-  <content type="html">{{ post.content }}</content>
+  <summary>
+    {{ post.description or post.fileSlug }}
+  </summary>
+  <content type="html">{{ post.content | safe }}</content>
 </entry>
 {% endfor %}
 

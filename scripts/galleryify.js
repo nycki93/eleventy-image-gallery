@@ -63,15 +63,15 @@ async function main() {
       const imgsrc = fileOut.replace(/^static/, '');
       fs.writeFile(galleryPage, unindent(`
         ---
-          title: ${name}
-          description:
-          thumbnail: ${imgsrc}
-          created: "${created}"
-          updated: "${created}"
-          tags:
-            - tagme
+        title: ${name}
+        description:
+        thumbnail: ${imgsrc}
+        created: "${created}"
+        updated: "${created}"
+        tags:
+          - tagme
         ---
-        <img src="${imgsrc}">
+        <img src="${imgsrc}"/>
       `));
     }
   }
