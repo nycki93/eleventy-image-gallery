@@ -53,6 +53,7 @@ async function main() {
 
     // make new gallery page if necessary
     const galleryPage = path.join('content', 'gallery', `${name}.md`);
+    const created = (new Date).toISOString();
     try {
       await fs.access(galleryPage);
       console.log(`${galleryPage} already exists, skipping`);
@@ -63,7 +64,10 @@ async function main() {
       fs.writeFile(galleryPage, unindent(`
         ---
           title: ${name}
+          description:
           thumbnail: ${imgsrc}
+          created: "${created}"
+          updated: "${created}"
           tags:
             - tagme
         ---

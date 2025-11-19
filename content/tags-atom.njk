@@ -5,8 +5,6 @@ pagination:
   alias: tag
 eleventyComputed:
   title: "tagged: {{ tag }}"
-  permalink: "/tagged/{{ tag }}/"
-  atom: "{{ page.url }}/atom.xml"
+layout: atom.njk
+permalink: /tagged/{{ tag }}/atom.xml
 ---
-<h1>{{ title }}</h1>
-{% include 'thumbnails.njk' %}

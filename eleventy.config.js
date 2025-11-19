@@ -19,6 +19,10 @@ export default function(eleventyConfig) {
     eleventyConfig.addNunjucksFilter('stripHeader', function(content) {
         return this.env.filters.safe(content.replace(/<h1>.*<\/h1>/, ''));
     });
+
+    eleventyConfig.addFilter('xmlDate', function(s) {
+        return (new Date(s || 0)).toISOString();
+    });
 };
 
 export const config = {

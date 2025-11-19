@@ -1,15 +1,18 @@
 <!DOCTYPE html>
+<!-- site.url = {{ site.url }} -->
 <html lang="en">
 <head>
-  <!-- site.url = {{ site.url }} -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or page.fileSlug or site.title }}</title>
   <meta property="og:title" content="{{ title or page.fileSlug or site.title }}">
   <meta property="og:description" content="{{ description or subtitle }}">
-  {% for image in previewImages %}
-    <meta property="og:image" content="{{ metadata.url + image }}">
-  {% endfor %}
+  {%- for image in previewImages %}
+  <meta property="og:image" content="{{ metadata.url + image }}">
+  {% endfor -%}
+  {%- if atom %}
+  <link rel="alternate" href="{{ atom }}" type="application/atom+xml" title="{{ title or page.fileSlug or site.title }}">
+  {% endif -%}
   <meta property="generator" content="{{ eleventy.generator }}">
   <link rel="stylesheet" href="/style.css">
 </head>
