@@ -22,6 +22,8 @@ That's it, we're ready to roll.
 
 ## usage
 
+If this is your first time, you can delete the '.md' files in 'content/gallery', and the images in 'static/gallery'. Those are for the demo.
+
 Place your images in the folder labeled 'input-images'. Run the command `npm run build`. The site will be generated in the 'output' folder.
 
 To preview your site, run the command `npm run serve`. The site will be served at the address <http://localhost:8080>.
