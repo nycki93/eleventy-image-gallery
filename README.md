@@ -16,7 +16,7 @@ Next, download this code. There should be a link at the top like Code -> Downloa
 
 Extract this code to a folder, such as C:/Users/Luna/Code/eleventy-image-gallery.
 
-Right-click inside that folder, select "open terminal here", and type `npm install`. This should download some stuff into a folder called 'node_modules'. You can go offline now, that's all we need. If you ever want to uninstall, just delete 'node_modules'.
+Right-click inside that folder, select "open terminal here", and type `npm install`. This should download some stuff into a folder called 'node_modules'. You can go offline now if you want, that's all we need to install. If you ever want to uninstall, just delete 'node_modules'.
 
 That's it, we're ready to roll.
 
