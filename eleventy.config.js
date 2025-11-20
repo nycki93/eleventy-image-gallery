@@ -31,7 +31,7 @@ export default function(eleventyConfig) {
         const xhtml = await new Promise((res, rej) => tidy(
             content, 
             { 'output-xhtml': true, 'show-body-only': true }, 
-            (err, data) => err ? rej(err) : (console.log(data),res(data))
+            (err, data) => err ? rej(err) : res(data)
         ));
         return this.env.filters.safe(xhtml);
     });
