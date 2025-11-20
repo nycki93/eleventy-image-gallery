@@ -6,7 +6,7 @@
 
 ## setup
 
-Galleryify is powered by NodeJS. You can download it from <https://nodejs.org/>. Or, if you're command-line savvy, try this:
+eleventy-image-gallery is powered by NodeJS. You can download it from <https://nodejs.org/>. Or, if you're command-line savvy, try this:
 
 Windows: `winget install nodejs`
 
