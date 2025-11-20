@@ -26,7 +26,7 @@ If this is your first time, you can delete the '.md' files in 'content/gallery',
 
 Place your images in the folder labeled 'input-images'. Run the command `npm run build`. The site will be generated in the 'output' folder.
 
-To preview your site, run the command `npm run serve`. The site will be served at the address <http://localhost:8080>.
+To preview your site, run the command `npm run serve`. The site will be served at the address <http://localhost:8080>. This address will only work on your computer -- when you want to share it, I recommend uploading your site to a free host such as [neocities](https://neocities.org/) or [nekoweb](https://nekoweb.org/).
 
 Want to customize it? Make any changes you like to the files in the 'content' and 'static' folders. 'static' is for things that will be copied to the output with no changes, 'content' is for things that will change when built. 
 
@@ -42,3 +42,4 @@ this is very much a work in progress. if it helped you, let me know by sending m
 - clean up folder structure to make it more obvious what you do and don't need to modify
 - make a more obvious way to do gallery sub-folders
 - add a default home page that isn't just the same as the gallery page
+- test if this all works correctly when served from a sub-folder, in case people want to add this to an existing neocities site
