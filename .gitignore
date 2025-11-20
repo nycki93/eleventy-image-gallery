@@ -1,4 +1,4 @@
-_site
 node_modules
-scripts/in/*
-!scripts/in/.gitkeep
+output
+input-images/*
+!input-images/.gitkeep

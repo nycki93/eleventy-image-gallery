@@ -2,15 +2,15 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const dirIn = 'scripts/in';
+const dirIn = 'input-images';
 const dirOut = 'static/gallery';
 const shrinkThreshold = 400 * 1024;
 const quality = [100, 99, 97, 95, 90, 80, 75, 70, 60, 50, 40];
 
 /**
  * usage: 
- *   npm run galleryify
- *   npm run gallerify -- noshrink
+ *   npm run add-images
+ *   npm run add-images -- noshrink
  */
 async function main() {
   const noshrink = process.argv.indexOf('noshrink') > -1;

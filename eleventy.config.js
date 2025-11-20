@@ -1,10 +1,11 @@
-import relativeLinks from './_config/relative-links.js';
-import tagGroups from './_config/tag-groups.js';
+import relativeLinks from './plugins/relative-links.js';
+import tagGroups from './plugins/tag-groups.js';
 import { tidy } from 'htmltidy2';
 
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */
 export default function(eleventyConfig) {
     eleventyConfig.setInputDirectory('content');
+    eleventyConfig.setOutputDirectory('output');
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
     eleventyConfig.setDataFileBaseName('_data');
 	eleventyConfig.addPlugin(relativeLinks);
