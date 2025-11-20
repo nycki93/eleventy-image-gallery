@@ -32,6 +32,10 @@ Want to customize it? Make any changes you like to the files in the 'content' an
 
 I especially recommend customizing `static/style.css` if you want to change the look and feel of your site. You should also look at the `.md` files in `content/gallery`, that's where you can add tags and descriptions to your images. When you're done, run `build` again.
 
+## feedback
+
+this is very much a work in progress. if it helped you, let me know by sending me an email! if you have a bug or a feature request, you can email me that too, or use the "issues" tab on this page. thank you very much!
+
 ## TODO
 
 - clean up hard-coded CSS to make stuff easier to style
