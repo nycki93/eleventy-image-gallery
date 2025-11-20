@@ -26,7 +26,9 @@ Place your images in the folder labeled 'input-images'. Run the command `npm run
 
 To preview your site, run the command `npm run serve`. The site will be served at the address <http://localhost:8080>.
 
-Want to customize it? Make any changes you like to the files in the `content` and `static` folders. I especially recommend customizing `static/style.css` if you want to change the look and feel of your site. You should also look at the `.md` files in `content/gallery`, that's where you can add tags and descriptions to your images. When you're done, run `build` again.
+Want to customize it? Make any changes you like to the files in the 'content' and 'static' folders. 'static' is for things that will be copied to the output with no changes, 'content' is for things that will change when built. 
+
+I especially recommend customizing `static/style.css` if you want to change the look and feel of your site. You should also look at the `.md` files in `content/gallery`, that's where you can add tags and descriptions to your images. When you're done, run `build` again.
 
 ## TODO
 
