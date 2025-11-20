@@ -18,7 +18,7 @@ export default function(eleventyConfig) {
     
     // remove the first <h1> tag on a page
     eleventyConfig.addNunjucksFilter('stripHeader', function(content) {
-        return this.env.filters.safe(content.replace(/<h1>.*<\/h1>/, ''));
+        return this.env.filters.safe(content.replace(/[\s\S]*<\/h1>/, ''));
     });
 
     eleventyConfig.addFilter('xmlDate', function(s) {
