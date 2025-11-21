@@ -28,13 +28,12 @@ export default function(eleventyConfig) {
 
     // convert to xhtml so we can safely inject into atom feed later
     eleventyConfig.addAsyncFilter('xhtml', async function(content) {
-        /*const xhtml = await new Promise((res, rej) => tidy(
+        const xhtml = await new Promise((res, rej) => tidy(
             content, 
             { 'output-xhtml': true, 'show-body-only': true }, 
             (err, data) => err ? rej(err) : res(data)
         ));
-        return this.env.filters.safe(xhtml);*/
-        return content
+        return this.env.filters.safe(xhtml);
     });
 };
 
