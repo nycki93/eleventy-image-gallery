@@ -6,3 +6,8 @@
 ## 1.1.2
 
 - fixed regression with image thumbnails for images with spaces in filenames
+
+## 1.2.0
+
+- moved demo files to separate folder
+- fixed an error when generating thumbnails for large images
