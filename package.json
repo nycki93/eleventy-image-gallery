@@ -8,9 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "add-images": "node add-images.js",
     "build": "npm run build:images && npm run build:eleventy",
+    "build:demo": "DEMO=1 npm run build:images && eleventy",
     "build:images": "npm run add-images",
     "build:eleventy": "eleventy",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve",
+    "serve:demo": "DEMO=1 eleventy --serve"
   },
   "keywords": [],
   "author": "",

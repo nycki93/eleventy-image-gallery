@@ -2,8 +2,11 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const dirIn = 'input-images';
-const dirOut = 'static/gallery';
+const settings = {
+  dirIn: 'input-images',
+  dirOut: 'static/gallery',
+}
+
 const gallerySizeLimit = 400 * 1024;
 const thumbnailSizeLimit = 20 * 1024;
 const quality = [100, 99, 97, 95, 90, 80, 75, 70, 60, 50, 40];
@@ -14,6 +17,11 @@ const quality = [100, 99, 97, 95, 90, 80, 75, 70, 60, 50, 40];
  *   npm run add-images -- noshrink
  */
 async function main() {
+  const demo = process.env.DEMO == '1';
+  const dirIn = demo ? path.join('demo', settings.dirIn) : settings.dirIn;
+  const dirOut = demo ? path.join('demo', settings.dirOut) : settings.dirOut;
+  console.log(process.env.DEMO);
+
   const noshrink = process.argv.indexOf('noshrink') > -1;
   
   await makedir(dirIn);
@@ -46,7 +54,10 @@ async function main() {
     }
 
     // make new gallery page if necessary
-    const galleryPage = path.join('content', 'gallery', `${name}.md`);
+    const galleryPage = (demo
+      ? path.join('demo', 'content', 'gallery', `${name}.md`)
+      : path.join('content', 'gallery', `${name}.md`)
+    );
     const created = (new Date).toISOString();
     try {
       await fs.access(galleryPage);
@@ -54,8 +65,8 @@ async function main() {
     } catch(err) {
       if (err.code !== 'ENOENT') throw err;
       console.log(`creating ${galleryPage}`);
-      const imgsrc = fileOut.replace(/^static/, '');
-      const thumbsrc = thumbnailOut.replace(/^static/, '');
+      const imgsrc = fileOut.replace(/^(demo\/)?static/, '');
+      const thumbsrc = thumbnailOut.replace(/^(demo\/)?static/, '');
       fs.writeFile(galleryPage, unindent(`
         ---
         title: ${name}
@@ -105,7 +116,7 @@ async function makedir(dir) {
     await fs.stat(dir);
   } catch(err) {
     if (err.code !== 'ENOENT') throw err;
-    await fs.mkdir(dir);
+    await fs.mkdir(dir, { recursive: true });
   }
 }
 

@@ -4,9 +4,16 @@ import { tidy } from 'htmltidy2';
 
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */
 export default function(eleventyConfig) {
-    eleventyConfig.setInputDirectory('content');
-    eleventyConfig.setOutputDirectory('output');
-    eleventyConfig.addPassthroughCopy({ 'static': '/' });
+    if (process.env.DEMO == '1') {
+        eleventyConfig.setInputDirectory('demo/content');
+        eleventyConfig.setOutputDirectory('demo/output');
+        eleventyConfig.addPassthroughCopy({ 'demo/static': '/' });
+    } else {
+        eleventyConfig.setInputDirectory('content');
+        eleventyConfig.setOutputDirectory('output');
+        eleventyConfig.addPassthroughCopy({ 'static': '/' });
+    }
+
     eleventyConfig.setDataFileBaseName('_data');
 	eleventyConfig.addPlugin(relativeLinks);
     eleventyConfig.addPlugin(gallery);

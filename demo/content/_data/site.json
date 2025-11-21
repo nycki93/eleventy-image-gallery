@@ -1,0 +1,9 @@
+{
+  "title": "gallery test",
+  "url": "http://localhost:8000",
+  "description": "a static image gallery",
+  "author": {
+    "name": "Luna",
+    "email": "luna@example.org"
+  }
+}
