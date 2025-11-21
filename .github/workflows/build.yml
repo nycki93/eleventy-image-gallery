@@ -46,7 +46,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./demo/output
+          path: output
       
       - name: Publish
         uses: actions/deploy-pages@v4
