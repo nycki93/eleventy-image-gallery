@@ -4,6 +4,4 @@ tags:
   - charlie
   - alpha
 ---
-<div style="width: 40ch; height: 20ch; background-color: lightblue;">
-another image goes here
-</div>
+{% galleryImage src="", width=400, height=200, alt="another image goes here" %}

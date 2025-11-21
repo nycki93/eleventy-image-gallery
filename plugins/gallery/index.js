@@ -58,4 +58,31 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
     result.push('</div>');
     return result.join('\n');
   });
+
+  eleventyConfig.addShortcode('galleryThumbnailList', function(posts) {
+    const result = [];
+    result.push('<div class="gallery-thumbnail-list">');
+    for (const post of posts) {
+      result.push(`
+        <div class="gallery-thumbnail"><a href=${ post.url }>
+          <img src=${ post.data.thumbnail } alt=${ post.data.title || post.page.fileSlug }>
+        </a></div>
+      `);
+    }
+    result.push('</div>');
+    return result.join('\n');
+  });
+
+  eleventyConfig.addShortcode('galleryImage', function({ 
+    src='', 
+    width='', 
+    height='', 
+    alt='', 
+  }) {
+    return `
+      <div class="gallery-image-container">
+        <img class="gallery-image" src="${ src }" width="${ width }" height="${ height }" alt="${ alt }">
+      </div>
+    `;
+  });
 }

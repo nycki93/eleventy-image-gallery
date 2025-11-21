@@ -2,10 +2,10 @@
 title: klay-yeah
 description:
 thumbnail: /gallery/klay-yeah-thumb.jpg
-created: "2025-11-20T23:29:45.853Z"
-updated: "2025-11-20T23:29:45.853Z"
+created: "2025-11-21T04:34:02.195Z"
+updated: "2025-11-21T04:34:02.195Z"
 tags:
   - tagme
 ---
-<img src="/gallery/klay-yeah.png"/>
+{% galleryImage src="/gallery/klay-yeah.png", alt="klay-yeah" %}
       

@@ -1,5 +1,5 @@
 import relativeLinks from './plugins/relative-links.js';
-import gallery from './plugins/galleryify/index.js';
+import gallery from './plugins/gallery/index.js';
 import { tidy } from 'htmltidy2';
 
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */

@@ -9,4 +9,4 @@ eleventyComputed:
   atom: "{{ page.url }}/atom.xml"
 ---
 <h1>{{ title }}</h1>
-{% include 'thumbnails.njk' %}
+{% galleryThumbnailList collections[tag] %}

@@ -66,7 +66,7 @@ async function main() {
         tags:
           - tagme
         ---
-        <img src="${imgsrc}"/>
+        {% galleryImage src="${imgsrc}", alt="${name}" %}
       `));
     }
   }
