@@ -18,6 +18,8 @@ import { fileURLToPath } from "node:url";
 export default function(eleventyConfig, { includesPath="_includes" }) {
   const dir = path.dirname(fileURLToPath(import.meta.url));
 
+  eleventyConfig.addPassthroughCopy({ [path.join(dir, 'static')]: '/gallery' });
+
   eleventyConfig.addCollection('_tags', (collectionsApi) => {
     const tags = {};
     for (const item of collectionsApi.getAll()) {
@@ -45,6 +47,15 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
 
   eleventyConfig.addTemplate(path.join(includesPath, 'atom.njk'), readFileSync(path.join(dir, 'atom.njk')));
   eleventyConfig.addTemplate(path.join(includesPath, 'galleryBase.njk'), readFileSync(path.join(dir, 'galleryBase.njk')));
-  // eleventyConfig.addTemplate(path.join(includesPath, 'taglist.njk'), readFileSync(path.join(dir, 'taglist.njk')));
-  // eleventyConfig.addTemplate(path.join(includesPath, 'thumbnails.njk'), readFileSync(path.join(dir, 'thumbnails.njk')));
+
+  eleventyConfig.addShortcode('taglist', function(tags) {
+    const result = [];
+    result.push('<div class="gallery-taglist">')
+    for (const tag of tags) {
+      if (tag.startsWith('_')) continue;
+      result.push(`<span class="gallery-tag"><a href="/tagged/${ tag }/">${ tag }</a></span>`)
+    }
+    result.push('</div>');
+    return result.join('\n');
+  });
 }
