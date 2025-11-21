@@ -64,8 +64,8 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
     result.push('<div class="gallery-thumbnail-list">');
     for (const post of posts) {
       result.push(`
-        <div class="gallery-thumbnail"><a href=${ post.url }>
-          <img src=${ post.data.thumbnail } alt=${ post.data.title || post.page.fileSlug }>
+        <div class="gallery-thumbnail"><a href="${ post.url }">
+          <img src="${ post.data.thumbnail }" alt="${ post.data.title || post.page.fileSlug }">
         </a></div>
       `);
     }
