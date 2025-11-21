@@ -1,0 +1,8 @@
+.gallery-taglist {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery-taglist .gallery-tag {
+  margin: 1ch;
+  background-color: lightgreen;
+}
