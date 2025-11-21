@@ -1,5 +1,5 @@
 import relativeLinks from './plugins/relative-links.js';
-import tagGroups from './plugins/tag-groups.js';
+import gallery from './plugins/galleryify/index.js';
 import { tidy } from 'htmltidy2';
 
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */
@@ -9,7 +9,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ 'static': '/' });
     eleventyConfig.setDataFileBaseName('_data');
 	eleventyConfig.addPlugin(relativeLinks);
-    eleventyConfig.addPlugin(tagGroups);
+    eleventyConfig.addPlugin(gallery);
 
     // use template for all pages unless otherwise stated!
     eleventyConfig.addGlobalData('layout', 'base.njk');

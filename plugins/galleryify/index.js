@@ -1,9 +1,13 @@
+import { readFileSync } from "node:fs";
+import path from 'node:path';
+import { fileURLToPath } from "node:url";
+
 /**
  * by Nick 'Nycki' Lamicela, 2025
  * License: CC-BY-NC. You may use this for noncommercial purposes only, and 
  * you must credit the original author.
  * 
- * Create a _tags collection. All other pages that use an underscore-prefixed 
+ * Creates a _tags collection. All other pages that use an underscore-prefixed 
  * tag, such as _gallery, will have their pages added to the list. So for 
  * instance you can paginate on `collections._tags._gallery` to make a list of
  * all tags that are used in any _gallery page.
@@ -11,7 +15,9 @@
  * By convention, tags with a leading underscore should be omitted from
  * visible tag lists. This is a convention I just made up now.
  */
-export default function(eleventyConfig) {
+export default function(eleventyConfig, { includesPath="_includes" }) {
+  const dir = path.dirname(fileURLToPath(import.meta.url));
+
   eleventyConfig.addCollection('_tags', (collectionsApi) => {
     const tags = {};
     for (const item of collectionsApi.getAll()) {
@@ -36,4 +42,9 @@ export default function(eleventyConfig) {
     }
     return tags;
   });
+
+  eleventyConfig.addTemplate(path.join(includesPath, 'atom.njk'), readFileSync(path.join(dir, 'atom.njk')));
+  eleventyConfig.addTemplate(path.join(includesPath, 'galleryBase.njk'), readFileSync(path.join(dir, 'galleryBase.njk')));
+  // eleventyConfig.addTemplate(path.join(includesPath, 'taglist.njk'), readFileSync(path.join(dir, 'taglist.njk')));
+  // eleventyConfig.addTemplate(path.join(includesPath, 'thumbnails.njk'), readFileSync(path.join(dir, 'thumbnails.njk')));
 }
