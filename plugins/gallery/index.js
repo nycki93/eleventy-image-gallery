@@ -1,3 +1,4 @@
+import { tidy } from 'htmltidy2';
 import { readFileSync } from "node:fs";
 import path from 'node:path';
 import { fileURLToPath } from "node:url";
@@ -84,5 +85,24 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
         <img class="gallery-image" src="${ src }" width="${ width }" height="${ height }" alt="${ alt }">
       </div>
     `;
+  });
+
+  // filters for atom/rss feeds
+
+  eleventyConfig.addFilter('xmlDate', function(s) {
+    return (new Date(s || 0)).toISOString();
+  });
+
+  // convert to xhtml so we can safely inject into atom feed later
+  eleventyConfig.addAsyncFilter('xhtml', async function(content) {
+    // TODO: find a library for this that works on arm. Or just implement it in JS.
+    if (process.arch === "arm64") return content;
+    
+    const xhtml = await new Promise((res, rej) => tidy(
+      content, 
+      { 'output-xhtml': true, 'show-body-only': true }, 
+      (err, data) => err ? rej(err) : res(data)
+    ));
+    return this.env.filters.safe(xhtml);
   });
 }

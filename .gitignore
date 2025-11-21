@@ -1,4 +1,6 @@
+content/gallery/*.md
 node_modules
 output
 input-images/*
 !input-images/.gitkeep
+static/gallery

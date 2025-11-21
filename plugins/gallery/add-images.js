@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import sharp from 'sharp';
+let sharp;
 
 const settings = {
   dirIn: 'input-images',
@@ -20,7 +20,6 @@ async function main() {
   const demo = process.env.DEMO == '1';
   const dirIn = demo ? path.join('demo', settings.dirIn) : settings.dirIn;
   const dirOut = demo ? path.join('demo', settings.dirOut) : settings.dirOut;
-  console.log(process.env.DEMO);
 
   const noshrink = process.argv.indexOf('noshrink') > -1;
   
@@ -90,13 +89,15 @@ async function shrink({
   const { name, ext } = path.parse(fileIn);
   const { size } = await fs.stat(fileIn);
   
-  if (noshrink || size <= threshold) {
+  // TODO: find a way to build this on arm
+  if (noshrink || size <= threshold || process.arch == "arm64") {
     const fileOut = path.join(dirOut, base);
     console.log(`${fileIn} -> ${fileOut} (no changes)`);
     fs.copyFile(fileIn, fileOut);
     return fileOut;
   }
 
+  sharp = sharp || (await import('sharp')).default;
   const fileOut = path.join(dirOut, `${name}${suffix}.jpg`);
   for (let i = 0; i < quality.length; i++) {
     const newStats = await (sharp(fileIn)

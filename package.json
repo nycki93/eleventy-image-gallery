@@ -6,24 +6,24 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "add-images": "node add-images.js",
-    "build": "npm run build:images && npm run build:eleventy",
-    "build:demo": "DEMO=1 npm run build:images && DEMO=1 eleventy",
-    "build:images": "npm run add-images",
+    "build:images": "node plugins/gallery/add-images.js",
     "build:eleventy": "eleventy",
+    "build": "npm run build:images && npm run build:eleventy",
+    "build:demo": "cross-env DEMO=1 npm run build",
     "serve": "eleventy --serve",
-    "serve:demo": "DEMO=1 eleventy --serve"
+    "serve:demo": "cross-env DEMO=1 npm run serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-ejs": "^1.0.0",
-    "@types/node": "^24.10.1",
+    "cross-env": "^10.1.0",
+    "htmltidy2": "^1.2.0",
     "sharp": "^0.34.5"
   },
-  "dependencies": {
-    "htmltidy2": "^1.2.0"
+  "devDependencies": {
+    "@types/node": "^24.10.1"
   }
 }
