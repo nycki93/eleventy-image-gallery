@@ -1,4 +1,4 @@
 {
-  "layout": "galleryBase.njk",
+  "layout": "galleryPage.njk",
   "tags": "_gallery"
 }

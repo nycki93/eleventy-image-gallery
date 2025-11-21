@@ -28,6 +28,7 @@
     </nav>
   </header>
   <main>
+    <h1>{{ title or page.fileSlug }}</h1>
     {{ content | safe }}
   </main>
 </body>

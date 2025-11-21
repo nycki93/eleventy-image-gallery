@@ -49,7 +49,6 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
   });
 
   eleventyConfig.addTemplate(path.join(includesPath, 'atom.njk'), readFileSync(path.join(dir, 'atom.njk')));
-  eleventyConfig.addTemplate(path.join(includesPath, 'galleryBase.njk'), readFileSync(path.join(dir, 'galleryBase.njk')));
 
   eleventyConfig.addShortcode('taglist', function(tags) {
     const result = [];
