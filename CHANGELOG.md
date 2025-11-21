@@ -16,4 +16,5 @@
 
 ## 1.2.0+
 
-- fixed issue with gitignore being treated as eleventyignore
+- fix issue with gitignore being treated as eleventyignore
+- fix edge case with empty gallery
