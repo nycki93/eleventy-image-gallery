@@ -22,7 +22,9 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
   eleventyConfig.addPassthroughCopy({ [path.join(dir, 'static')]: '/gallery' });
 
   eleventyConfig.addCollection('_tags', (collectionsApi) => {
-    const tags = {};
+    const tags = {
+      _gallery: new Set(),
+    };
     for (const item of collectionsApi.getAll()) {
       const metaTags = [];
       const itemTags = [];
@@ -63,7 +65,7 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
   eleventyConfig.addShortcode('galleryThumbnailList', function(posts) {
     const result = [];
     result.push('<div class="gallery-thumbnail-list">');
-    for (const post of posts) {
+    for (const post of posts || []) {
       result.push(`
         <div class="gallery-thumbnail"><a href="${ post.url }">
           <img src="${ post.data.thumbnail }" alt="${ post.data.title || post.page.fileSlug }">

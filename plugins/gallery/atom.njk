@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 <!-- <?xml-stylesheet href="/eleventy-image-gallery/atom.xsl" type="text/xsl"?> -->
 <!-- https://andrewstiefel.com/style-atom-xsl/ -->
 <feed xmlns="http://www.w3.org/2005/Atom">
-<updated>{{ (collections[tag] | last).data.updated | xmlDate }}</updated>
+<updated>{{ ((collections[tag] or []) | last).data.updated | xmlDate }}</updated>
 
 <title>{{ site.title }}</title>
 <link href="{{ site.url }}{{ permalink }}" rel="self"/>
