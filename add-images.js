@@ -97,7 +97,7 @@ async function shrink({
       return fileOut;
     }
   }
-  return null;
+  return '';
 }
 
 async function makedir(dir) {
