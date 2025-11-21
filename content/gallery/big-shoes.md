@@ -2,10 +2,10 @@
 title: big-shoes
 description:
 thumbnail: /gallery/big-shoes.png
-created: "2025-11-20T23:29:45.480Z"
-updated: "2025-11-20T23:29:45.480Z"
+created: "2025-11-21T04:34:01.793Z"
+updated: "2025-11-21T04:34:01.793Z"
 tags:
   - tagme
 ---
-<img src="/gallery/big-shoes.png"/>
+{% galleryImage src="/gallery/big-shoes.png", alt="big-shoes" %}
       
