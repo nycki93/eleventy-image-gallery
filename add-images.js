@@ -49,7 +49,7 @@ async function main() {
       threshold: thumbnailSizeLimit,
       suffix: '-thumb',
     });
-    if (!fileOut) {
+    if (!fileOut || !thumbnailOut) {
       console.log(`error: failed to resize ${base}`);
     }
 
@@ -71,7 +71,7 @@ async function main() {
         ---
         title: ${name}
         description:
-        thumbnail: ${thumbsrc}
+        thumbnail: "${thumbsrc}"
         created: "${created}"
         updated: "${created}"
         tags:
@@ -103,7 +103,7 @@ async function shrink({
       .jpeg({ mozjpeg: true, quality: quality[i] })
       .toFile(fileOut)
     );
-    if (i == quality.length || newStats.size <= threshold) {
+    if (i == quality.length-1 || newStats.size <= threshold) {
       console.log(`${fileIn} -> ${fileOut} (quality: ${quality[i]})`);
       return fileOut;
     }
