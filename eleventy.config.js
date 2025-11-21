@@ -14,6 +14,7 @@ export default function(eleventyConfig) {
     }
 
     eleventyConfig.setDataFileBaseName('_data');
+    eleventyConfig.setUseGitIgnore(false);
 	eleventyConfig.addPlugin(relativeLinks);
     eleventyConfig.addPlugin(gallery);
 
@@ -21,7 +22,9 @@ export default function(eleventyConfig) {
     eleventyConfig.addGlobalData('layout', 'base.njk');
 
     // set base url for absolute links
-    eleventyConfig.addGlobalData('site.url', process.env.url || 'http://localhost:8080');
+    if (process.env.url) {
+        eleventyConfig.addGlobalData('site.url', process.env.url);
+    }
     
     // remove the first <h1> tag on a page
     eleventyConfig.addNunjucksFilter('stripHeader', function(content) {
