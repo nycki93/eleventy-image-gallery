@@ -11,3 +11,5 @@
 
 - moved demo files to separate folder
 - fixed an error when generating thumbnails for large images
+- moved most logic into plugin or demo, keep main dir clean
+- added workarounds when building on arm64 (tidy and sharp not supported)
