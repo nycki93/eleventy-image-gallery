@@ -41,7 +41,7 @@
         <xsl:value-of select="atom:title"/>
       </a>
     </h3>
-    <xsl:apply-templates select="atom:content/*" namespace=""/>
+    <xsl:apply-templates select="atom:content/*"/>
   </section>
 </xsl:template>
 
