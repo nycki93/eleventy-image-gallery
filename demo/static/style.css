@@ -1,6 +1,7 @@
 html {
   background-color: darkslategray;
   padding: 1ch;
+  font-family: consolas, monospace
 }
 
 body {

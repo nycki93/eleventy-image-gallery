@@ -1,4 +1,8 @@
 ---
-title: MAIN PAGE
+title: GALLERY DEMO
 ---
-<a href="/gallery"><h2>GALLERY</h2></a>
+{% galleryThumbnailList collections._gallery %}
+
+<h2>all tags</h2>
+
+{% taglist collections._tags._gallery %}
