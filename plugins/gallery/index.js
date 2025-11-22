@@ -3,6 +3,10 @@ import { readFileSync } from "node:fs";
 import path from 'node:path';
 import { fileURLToPath } from "node:url";
 
+const dir = path.dirname(fileURLToPath(import.meta.url));
+
+export const defaultStyle = path.join(dir, 'default.css');
+
 /**
  * by Nick 'Nycki' Lamicela, 2025
  * License: CC-BY-NC. You may use this for noncommercial purposes only, and 
@@ -17,10 +21,6 @@ import { fileURLToPath } from "node:url";
  * visible tag lists. This is a convention I just made up now.
  */
 export default function(eleventyConfig, { includesPath="_includes" }) {
-  const dir = path.dirname(fileURLToPath(import.meta.url));
-
-  eleventyConfig.addPassthroughCopy({ [path.join(dir, 'static')]: '/gallery' });
-
   eleventyConfig.addCollection('_tags', (collectionsApi) => {
     const tags = {
       _gallery: new Set(),

@@ -7,14 +7,15 @@
   <title>{{ title or page.fileSlug or site.title }}</title>
   <meta property="og:title" content="{{ title or page.fileSlug or site.title }}">
   <meta property="og:description" content="{{ description or subtitle }}">
-  {%- for image in previewImages %}
-  <meta property="og:image" content="{{ metadata.url + image }}">
-  {% endfor -%}
+  {%- if thumbnail %}
+  <meta property="og:image" content="{{ site.url.slice(0, -1) }}{{ thumbnail }}">
+  <meta property="twitter:image" content="{{ site.url.slice(0, -1) }}{{ thumbnail }}">
+  {% endif -%}
   {%- if atom %}
   <link rel="alternate" href="{{ atom }}" type="application/atom+xml" title="{{ title or page.fileSlug or site.title }}">
   {% endif -%}
   <meta property="generator" content="{{ eleventy.generator }}">
-  <link rel="stylesheet" href="/gallery/style.css">
+  <link rel="stylesheet" href="/gallery.css">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>

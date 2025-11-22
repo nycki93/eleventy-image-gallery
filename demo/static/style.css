@@ -1,16 +1,21 @@
 html {
-  background-color: grey;
+  background-color: darkslategray;
   padding: 1ch;
 }
 
 body {
-  background-color: lightgoldenrodyellow;
+  background-color: lightslategray;
   margin: 0 auto;
   padding: 1ch;
   max-width: 80ch;
 }
+
 :first-child {
   margin-top: 0;
+}
+
+h1 {
+  text-align: center;
 }
 
 nav ul {
@@ -27,3 +32,17 @@ nav li + li::before {
 img {
   max-width: 100%;
 }
+
+.gallery-thumbnail-list .gallery-thumbnail img {
+  border: none;
+  background-color: darkslategrey;
+  padding: .5rem;
+}
+
+.gallery-taglist a {
+  border: none;
+  padding: .5rem;
+  color: lightgrey;
+  background-color: darkslategrey;
+}
+
