@@ -1,6 +1,6 @@
 {
   "title": "gallery test",
-  "url": "http://localhost:8000",
+  "url": "http://localhost:8080/",
   "description": "a static image gallery",
   "author": {
     "name": "Luna",
