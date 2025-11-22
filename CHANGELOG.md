@@ -14,7 +14,8 @@
 - moved most logic into plugin or demo, keep main dir clean
 - added workarounds when building on arm64 (tidy and sharp not supported)
 
-## 1.2.0+
+## 1.3.0
 
 - fix issue with gitignore being treated as eleventyignore
 - fix edge case with empty gallery
+- rearrange default templates
