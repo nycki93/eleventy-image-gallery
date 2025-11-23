@@ -1,0 +1,35 @@
+---
+eleventyExcludeFromCollections: true
+# tag: _gallery
+# permalink: /gallery/atom.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet href="{{ site.url }}gallery/atom.xsl" type="text/xsl"?> -->
+<!-- https://andrewstiefel.com/style-atom-xsl/ -->
+<feed xmlns="http://www.w3.org/2005/Atom">
+<updated>{{ ((collections[tag] or []) | last).data.updated | xmlDate }}</updated>
+
+<title>{{ site.title }}</title>
+<link href="{{ site.url }}{{ permalink }}" rel="self"/>
+<link href="{{ site.url }}/" rel="alternate"/>
+<subtitle>{{ site.description }}</subtitle>
+<id>{{ r/\/$/.test(site.url) and site.url or (site.url + '/') }}</id>
+<author>
+  <name>{{ site.author.name }}</name>
+  <email>{{ site.author.email }}</email>
+</author>
+
+{% for post in collections[tag] %}
+<entry>
+  <title>{{ post.title or post.fileSlug }}</title>
+  <link rel="alternate" href="{{ site.url }}{{ post.url }}"/>
+  <updated>{{ post.data.updated | xmlDate }}</updated>
+  <id>{{ site.url }}{{ post.url }}:{{ post.data.updated }}</id>
+  <summary>
+    {{ post.description or post.fileSlug }}
+  </summary>
+  <content type="html">{{ post.content | xhtml }}</content>
+</entry>
+{% endfor %}
+
+</feed>
