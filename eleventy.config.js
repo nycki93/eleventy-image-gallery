@@ -1,5 +1,5 @@
 import relativeLinks from './plugins/relative-links.js';
-import gallery, { defaultStyle } from './plugins/gallery/index.js';
+import gallery from './plugins/gallery/index.js';
 
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */
 export default function(eleventyConfig) {
@@ -13,7 +13,6 @@ export default function(eleventyConfig) {
         eleventyConfig.addPassthroughCopy({ 'static': '/' });
     }
 
-    eleventyConfig.addPassthroughCopy({ [defaultStyle]: '/gallery.css' });
     eleventyConfig.setDataFileBaseName('_data');
     eleventyConfig.setUseGitIgnore(false);
 	eleventyConfig.addPlugin(relativeLinks);

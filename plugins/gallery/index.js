@@ -1,10 +1,7 @@
 import { tidy } from 'htmltidy2';
-import fs from 'node:fs/promises';
+import { readFileSync } from "node:fs";
 import path from 'node:path';
 import { fileURLToPath } from "node:url";
-
-const pluginDir = path.dirname(fileURLToPath(import.meta.url));
-export const defaultStyle = path.join(pluginDir, 'default.css');
 
 /**
  * by Nick 'Nycki' Lamicela, 2025
@@ -19,8 +16,10 @@ export const defaultStyle = path.join(pluginDir, 'default.css');
  * By convention, tags with a leading underscore should be omitted from
  * visible tag lists. This is a convention I just made up now.
  */
-export default function(eleventyConfig, { galleryPath='gallery', extensions='png,jpeg' }) {
-  // eleventyConfig.on('eleventy.before', addNewImages({ galleryPath, extensions }));
+export default function(eleventyConfig, { includesPath="_includes" }) {
+  const dir = path.dirname(fileURLToPath(import.meta.url));
+
+  eleventyConfig.addPassthroughCopy({ [path.join(dir, 'static')]: '/gallery' });
 
   eleventyConfig.addCollection('_tags', (collectionsApi) => {
     const tags = {
@@ -48,6 +47,8 @@ export default function(eleventyConfig, { galleryPath='gallery', extensions='png
     }
     return tags;
   });
+
+  eleventyConfig.addTemplate(path.join(includesPath, 'atom.njk'), readFileSync(path.join(dir, 'atom.njk')));
 
   eleventyConfig.addShortcode('taglist', function(tags) {
     const result = [];
@@ -105,59 +106,4 @@ export default function(eleventyConfig, { galleryPath='gallery', extensions='png
     ));
     return this.env.filters.safe(xhtml);
   });
-}
-
-async function doesResolve(p) {
-  try {
-    await p;
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function unindent(s) {
-  const lines = s.split('\n').slice(1);
-  const indent = lines[0].match(/^\s*/)[0];
-  return (lines
-    .map(l => l.startsWith(indent) ? l.slice(indent.length) : l)
-    .join('\n')
-  );
-}
-
-const addNewImages = ({ galleryPath, extensions }) => async ({ directories }) => {
-  const dir = path.join(directories.input, galleryPath);
-  const exts = extensions.split(',');
-  const thumbSuffix = '-thumb.jpg';
-  for (const base of await fs.readdir(dir)) {
-    if (base.startsWith('.')) continue;
-    if (base.endsWith(thumbSuffix)) continue;
-    const { name, ext } = path.parse(base);
-    if (!exts.includes(ext.slice(1))) continue;
-    const file = path.join(dir, base);
-    const { size } = await fs.stat(file);
-    const thumb = path.join(dir, `${name}${thumbSuffix}`);
-    const thumbExists = await doesResolve(fs.stat(thumb));
-    if (!thumbExists) {
-      console.log(`creating ${thumb}`);
-      fs.copyFile(file, thumb);
-    }
-    const md = path.join(dir, `${name}.md`);
-    const mdExists = await doesResolve(fs.stat(md));
-    if (!mdExists) {
-      console.log(`creating ${md}`);
-      fs.writeFile(md, unindent(`
-        ---
-        title: "${name}"
-        images: ["/gallery/${base}"]
-        description:
-        thumbnail: "/gallery/${base}"
-        tags:
-          - tagme
-        ---
-        {% galleryImage src="/gallery/${base}", alt="${name}" %}
-        {{ description }}
-      `));
-    }
-  }
 }

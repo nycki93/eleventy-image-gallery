@@ -42,7 +42,6 @@ jobs:
 
       - run: npm ci
       - run: npm run build:demo
-      - run: touch demo/output/.nojekyll
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,40 @@
+.gallery-taglist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.gallery-taglist a {
+  display: inline-block;
+  border: .5rem solid lightgreen;
+  background-color: lightgreen;
+}
+
+.gallery-thumbnail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+}
+.gallery-thumbnail-list .gallery-thumbnail {
+  display: flex;
+  align-items: center;
+}
+.gallery-thumbnail-list .gallery-thumbnail img {
+  height: 10rem;
+  display: inline-block;
+  background-color: skyblue;
+  border: .5rem solid skyblue;
+  box-sizing: border-box;
+}
+
+.gallery-image-container {
+  width: 100%;
+  text-align: center;
+}
+.gallery-image {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: .5rem auto;
+  padding: .5rem;
+  background-color: lightblue;
+}
