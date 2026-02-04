@@ -25,3 +25,4 @@
 - replace toSorted() with [...].sort() for backwards compatibility
 - remove duplicate files from demo
 - remove unused Atom stuff for now
+- fix duplicate title on tag pages
