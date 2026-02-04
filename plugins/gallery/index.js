@@ -44,7 +44,7 @@ export default function(eleventyConfig, { galleryPath='gallery', extensions='png
       }
     }
     for (const k of Object.keys(tags)) {
-      tags[k] = Array.from(tags[k]).toSorted();
+      tags[k] = [...tags[k]].sort();
     }
     return tags;
   });
