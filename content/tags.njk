@@ -6,7 +6,5 @@ pagination:
 eleventyComputed:
   title: "tagged: {{ tag }}"
   permalink: "/tagged/{{ tag }}/"
-  atom: "{{ page.url }}/atom.xml"
 ---
-<h1>{{ title }}</h1>
 {% galleryThumbnailList collections[tag] %}
