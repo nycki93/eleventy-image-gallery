@@ -10,7 +10,7 @@
     "build:eleventy": "eleventy",
     "build": "npm run build:images && npm run build:eleventy",
     "serve": "eleventy --serve",
-    "build:demo": "cp demo/input-images/* ./input-images/ && npm run build",
+    "build:demo": "cp demo-images/* ./input-images/ && npm run build",
     "serve:demo": "npm run build:demo && npm run serve"
   },
   "keywords": [],

@@ -18,14 +18,8 @@ const quality = [100, 99, 97, 95, 90, 80, 75, 70, 60, 50, 40];
  *   npm run add-images -- noshrink
  */
 export async function addNewImages(args) {
-  const demo = process.env.DEMO == '1';
-
   let dirIn, dirOut, dirGallery;
-  if (demo) {
-    dirIn = path.join('demo', settings.dirIn);
-    dirOut = path.join('demo', settings.dirOut);
-    dirGallery = path.join('demo', 'content', 'gallery');
-  } else if (args?.directories) {
+  if (args?.directories) {
     dirIn = path.join(args.directories.input, '..', settings.dirIn);
     dirOut = path.join(args.directories.input, '..', settings.dirOut);
     dirGallery = path.join(args.directories.input, '..', 'content', 'gallery');

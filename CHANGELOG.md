@@ -19,3 +19,9 @@
 - fix issue with gitignore being treated as eleventyignore
 - fix edge case with empty gallery
 - rearrange default templates
+
+## 1.4.0
+
+- replace toSorted() with [...].sort() for backwards compatibility
+- remove duplicate files from demo
+- remove unused Atom stuff for now
