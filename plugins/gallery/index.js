@@ -65,7 +65,7 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
           <a href="${ post.url }">
             <img src="${ post.data.thumbnail }" alt="${ post.data.title || post.page.fileSlug }">
           </a>
-          <p>${ post.data.title }</p>
+          <p>${ post.data.summary || post.data.title }</p>
         </div>
       `);
     }

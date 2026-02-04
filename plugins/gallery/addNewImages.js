@@ -80,7 +80,8 @@ export async function addNewImages(args) {
           - tagme
         ---
         {% galleryImage src="/gallery/${imageSrc}", alt="${name}" %}
-        <!-- write your description here -->
+        {{ summary }}
+        <!-- add your description here -->
       `));
     }
   }
