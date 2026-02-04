@@ -10,8 +10,8 @@
     "build:eleventy": "eleventy",
     "build": "npm run build:images && npm run build:eleventy",
     "serve": "eleventy --serve",
-    "build:demo": "cp demo-images/* ./input-images/ && npm run build",
-    "serve:demo": "npm run build:demo && npm run serve"
+    "build-demo": "cp demo-images/* ./input-images/ && npm run build",
+    "reset-demo": "rm input-images/demo-*.png content/gallery/demo-*.md static/gallery/demo-*.png static/gallery/demo-*.jpg"
   },
   "keywords": [],
   "author": "",
