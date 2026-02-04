@@ -1,11 +1,11 @@
 ---
 title: waso-nasa
-description: look at this weird bird
+description:
 thumbnail: "/gallery/waso-nasa.png"
-created: "2025-11-21T20:29:41.689Z"
-updated: "2025-11-21T20:29:41.689Z"
+created: "2026-02-04T20:50:24.763Z"
+updated: "2026-02-04T20:50:24.763Z"
 tags:
-  - toki pona
+  - tagme
 ---
 {% galleryImage src="/gallery/waso-nasa.png", alt="waso-nasa" %}
-{{ description }}
+      
