@@ -72,14 +72,15 @@ export async function addNewImages(args) {
       fs.writeFile(galleryPage, unindent(`
         ---
         title: ${name}
-        description:
         thumbnail: "/gallery/${thumbnailSrc}"
+        summary: 
         created: "${created}"
         updated: "${created}"
         tags:
           - tagme
         ---
         {% galleryImage src="/gallery/${imageSrc}", alt="${name}" %}
+        <!-- write your description here -->
       `));
     }
   }

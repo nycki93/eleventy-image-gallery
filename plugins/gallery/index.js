@@ -58,12 +58,15 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
 
   eleventyConfig.addShortcode('galleryThumbnailList', function(posts) {
     const result = [];
-    result.push('<div class="gallery-thumbnail-list">');
+    result.push('<div class="gallery-list">');
     for (const post of posts || []) {
       result.push(`
-        <div class="gallery-thumbnail"><a href="${ post.url }">
-          <img src="${ post.data.thumbnail }" alt="${ post.data.title || post.page.fileSlug }">
-        </a></div>
+        <div class="gallery-item">
+          <a href="${ post.url }">
+            <img src="${ post.data.thumbnail }" alt="${ post.data.title || post.page.fileSlug }">
+          </a>
+          <p>${ post.data.title }</p>
+        </div>
       `);
     }
     result.push('</div>');

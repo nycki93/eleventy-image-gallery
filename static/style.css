@@ -39,21 +39,27 @@ img {
   background-color: skyblue;
 }
 
-.gallery-thumbnail-list {
+.gallery-list {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
   justify-content: center;
 }
-.gallery-thumbnail-list .gallery-thumbnail {
-  display: flex;
-  align-items: center;
+.gallery-list .gallery-item {
+  display: inline-block;
+  text-align: center;
 }
-.gallery-thumbnail-list .gallery-thumbnail img {
+.gallery-list .gallery-item img {
   height: 10rem;
   display: inline-block;
   border: .5rem tan ridge;
   box-sizing: border-box;
+}
+.gallery-list .gallery-item p {
+  background-color: white;
+  width: fit-content;
+  margin: 0 auto;
+  padding: .5rem;
 }
 
 .gallery-image-container {
