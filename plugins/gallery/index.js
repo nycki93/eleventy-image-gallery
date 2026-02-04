@@ -43,7 +43,7 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
       }
     }
     for (const k of Object.keys(tags)) {
-      tags[k] = Array.from(tags[k]).toSorted();
+      tags[k] = [...tags[k]].sort();
     }
     return tags;
   });
