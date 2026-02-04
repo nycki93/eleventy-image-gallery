@@ -1,5 +1,4 @@
 import { tidy } from 'htmltidy2';
-import { readFileSync } from "node:fs";
 import path from 'node:path';
 import { fileURLToPath } from "node:url";
 
@@ -18,8 +17,6 @@ import { fileURLToPath } from "node:url";
  */
 export default function(eleventyConfig, { includesPath="_includes" }) {
   const dir = path.dirname(fileURLToPath(import.meta.url));
-
-  eleventyConfig.addPassthroughCopy({ [path.join(dir, 'static')]: '/gallery' });
 
   eleventyConfig.addCollection('_tags', (collectionsApi) => {
     const tags = {
@@ -47,8 +44,6 @@ export default function(eleventyConfig, { includesPath="_includes" }) {
     }
     return tags;
   });
-
-  eleventyConfig.addTemplate(path.join(includesPath, 'atom.njk'), readFileSync(path.join(dir, 'atom.njk')));
 
   eleventyConfig.addShortcode('taglist', function(tags) {
     const result = [];

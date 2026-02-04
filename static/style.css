@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  background-color: lightgoldenrodyellow;
+  background-color: beige;
   margin: 0 auto;
   padding: 1ch;
   max-width: 80ch;
@@ -26,4 +26,44 @@ nav li + li::before {
 
 img {
   max-width: 100%;
+}
+
+.gallery-taglist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.gallery-taglist a {
+  display: inline-block;
+  padding: .5rem;
+  background-color: skyblue;
+}
+
+.gallery-thumbnail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  justify-content: center;
+}
+.gallery-thumbnail-list .gallery-thumbnail {
+  display: flex;
+  align-items: center;
+}
+.gallery-thumbnail-list .gallery-thumbnail img {
+  height: 10rem;
+  display: inline-block;
+  border: .5rem tan ridge;
+  box-sizing: border-box;
+}
+
+.gallery-image-container {
+  width: 100%;
+  text-align: center;
+}
+.gallery-image {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: .5rem auto;
+  padding: .5rem;
+  background-color: lightblue;
 }

@@ -3,15 +3,9 @@ import gallery from './plugins/gallery/index.js';
 
 /** @param {import('@11ty/eleventy/UserConfig').default} eleventyConfig */
 export default function(eleventyConfig) {
-    if (process.env.DEMO == '1') {
-        eleventyConfig.setInputDirectory('demo/content');
-        eleventyConfig.setOutputDirectory('demo/output');
-        eleventyConfig.addPassthroughCopy({ 'demo/static': '/' });
-    } else {
-        eleventyConfig.setInputDirectory('content');
-        eleventyConfig.setOutputDirectory('output');
-        eleventyConfig.addPassthroughCopy({ 'static': '/' });
-    }
+    eleventyConfig.setInputDirectory('content');
+    eleventyConfig.setOutputDirectory('output');
+    eleventyConfig.addPassthroughCopy({ 'static': '/' });
 
     eleventyConfig.setDataFileBaseName('_data');
     eleventyConfig.setUseGitIgnore(false);
@@ -30,8 +24,6 @@ export default function(eleventyConfig) {
     eleventyConfig.addNunjucksFilter('stripHeader', function(content) {
         return this.env.filters.safe(content.replace(/[\s\S]*<\/h1>/, ''));
     });
-
-
 };
 
 export const config = {
