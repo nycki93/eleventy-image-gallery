@@ -9,9 +9,9 @@
     "build:images": "node plugins/gallery/addNewImages.js",
     "build:eleventy": "eleventy",
     "build": "npm run build:images && npm run build:eleventy",
-    "build:demo": "cross-env DEMO=1 npm run build",
     "serve": "eleventy --serve",
-    "serve:demo": "cross-env DEMO=1 npm run serve"
+    "build:demo": "cp demo/input-images/* ./input-images/ && npm run build",
+    "serve:demo": "npm run build:demo && npm run serve"
   },
   "keywords": [],
   "author": "",
